@@ -1,11 +1,18 @@
 {
-    "name": "webpack-workshop",
-    "version": "1.0.0",
-    "scripts": {
-        "server": "node ./server/index.js"
-    },
-    "private": true,
-    "devDependencies": {
-        "express": "^4.16.2"
-    }
+  "name": "webpack-workshop",
+  "version": "1.0.0",
+  "scripts": {
+    "server": "node ./server/index.js",
+    "build": "webpack"
+  },
+  "private": true,
+  "devDependencies": {
+    "express": "^4.16.2",
+    "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "markdown": "^0.5.0",
+    "moment": "^2.19.2"
+  }
 }
