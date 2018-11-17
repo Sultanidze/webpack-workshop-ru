@@ -16478,61 +16478,60 @@ module.exports = function(module) {
 
 /***/ }),
 /* 126 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_markdown__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_markdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_markdown__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css__ = __webpack_require__(135);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__style_css__);
 
 
+var _lodash = __webpack_require__(127);
 
+var _lodash2 = _interopRequireDefault(_lodash);
 
+var _moment = __webpack_require__(0);
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _markdown = __webpack_require__(129);
+
+__webpack_require__(135);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // 1. Fetch the new data
-fetch('/data')
-    .then(res => res.json())
-    .then(data => {
-        renderData(data);
-    });
+fetch('/data').then(function (res) {
+    return res.json();
+}).then(function (data) {
+    renderData(data);
+});
 
 // 2. Setup adding new posts
-const addPostForm = document.querySelector('#add-post');
-addPostForm.addEventListener('submit', (event) => {
+var addPostForm = document.querySelector('#add-post');
+addPostForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    const content = addPostForm.querySelector('.add-post__textarea').value;
-    addNewRecord(__WEBPACK_IMPORTED_MODULE_2_markdown__["markdown"].toHTML(content));
+    var content = addPostForm.querySelector('.add-post__textarea').value;
+    addNewRecord(_markdown.markdown.toHTML(content));
 });
 
 // 3. Methods
-const renderData = (data) => {
-    const target = document.querySelector('#records');
+var renderData = function renderData(data) {
+    var target = document.querySelector('#records');
 
-    const html = __WEBPACK_IMPORTED_MODULE_0_lodash___default()(data.items)
-        .map(item => generateRecord(item.date, __WEBPACK_IMPORTED_MODULE_2_markdown__["markdown"].toHTML(item.content)))
-        .join('');
+    var html = (0, _lodash2.default)(data.items).map(function (item) {
+        return generateRecord(item.date, _markdown.markdown.toHTML(item.content));
+    }).join('');
 
     target.innerHTML += html;
 };
 
-const addNewRecord = (content) => {
-    const target = document.querySelector('#records');
-    const html = generateRecord(new Date(), content);
+var addNewRecord = function addNewRecord(content) {
+    var target = document.querySelector('#records');
+    var html = generateRecord(new Date(), content);
     target.innerHTML = html + target.innerHTML;
 };
 
-const generateRecord = (date, content) => {
-    return `<section class="record">
-        <div class="record__date">${__WEBPACK_IMPORTED_MODULE_1_moment___default()(date).format('D MMM YYYY')}</div>
-        <div class="record__content">${content}</div>
-    </section>`;
-}
+var generateRecord = function generateRecord(date, content) {
+    return '<section class="record">\n        <div class="record__date">' + (0, _moment2.default)(date).format('D MMM YYYY') + '</div>\n        <div class="record__content">' + content + '</div>\n    </section>';
+};
 
 /***/ }),
 /* 127 */
