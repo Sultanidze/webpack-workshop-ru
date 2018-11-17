@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import moment from 'moment';
 import {markdown} from 'markdown';
+import './style.css'
 
 // 1. Fetch the new data
 fetch('/data')
