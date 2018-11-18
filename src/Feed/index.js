@@ -1,5 +1,5 @@
-// import _ from 'lodash';
-import _map from 'lodash/map';
+import _ from 'lodash';
+// import _map from 'lodash/map';
 import moment from 'moment';
 import {markdown} from 'markdown';
 import './style.css'
@@ -23,7 +23,7 @@ addPostForm.addEventListener('submit', (event) => {
 const renderData = (data) => {
     const target = document.querySelector('#records');
 
-    const html = _map(data.items, item => generateRecord(item.date, markdown.toHTML(item.content)))
+    const html = _.map(data.items, item => generateRecord(item.date, markdown.toHTML(item.content)))
         .join('');
 
     target.innerHTML += html;

@@ -26,7 +26,8 @@ module.exports = {
                                     "browsers": ['last 10 major versions', "Firefox > 20", '> 0.1%', 'ie 10-11']
                                 }
                             }]
-                        ]
+                        ],
+                        plugins: ['lodash']
                     }
                 }]
             }
