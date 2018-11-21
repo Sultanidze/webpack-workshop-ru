@@ -16,7 +16,12 @@ module.exports = {
                 // use: ['style-loader', 'css-loader']
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: 'css-loader'
+                    use: {
+                        loader: 'css-loader',
+                        options: {
+                            minimize: true
+                        }
+                    }
                 })
             },
             {
@@ -41,6 +46,9 @@ module.exports = {
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-        new ExtractTextPlugin('feed.css')
+        new ExtractTextPlugin('feed.css'),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"production"'
+        }),
     ]
 };
