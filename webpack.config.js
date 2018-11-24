@@ -5,10 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 
 const basicConfig = {
-    entry: './src/Feed/index.js',
+    entry: {
+        home: './src/Home/index.js',
+        feed: './src/Feed/index.js'
+    },
     output: {
-        path: path.resolve(__dirname, 'public', 'feed'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'public', 'assets'),
+        filename: './js/[name].js'
     },
     module: {
         rules: [
@@ -43,7 +46,9 @@ const basicConfig = {
         ],
     },
     plugins: [
-        new ExtractTextPlugin('feed.css')
+        new ExtractTextPlugin({
+            filename: 'css/[name].css',
+        })
     ],
 };
 
